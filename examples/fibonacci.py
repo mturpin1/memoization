@@ -1,4 +1,5 @@
 import time
+from ..utils import print_execution_time
 
 fib_cache = {}
 
@@ -11,23 +12,11 @@ def fibonacci(n, cache):
     cache[n] = result
     return result
 
-
+@print_execution_time
 def main():
     fib_sequence = int(input('Please input the numerical position in the Fibonacci sequence you would like to calculate to and/or return:   '))
 
-    srt = time.time() # start real time
-    spt = time.process_time() # start process time
-
     print(fibonacci(fib_sequence, fib_cache))
-
-    ert = time.time() # end real time
-    ept = time.process_time() # end process time
-
-    elapsed_real_time = (ert - srt) * 1000 # elapsed real time in ms
-    elapsed_process_time = (ept - spt) * 1000 # elapsed process time in ms
-
-    print(f'real time:    {elapsed_real_time}')
-    print(f'process time: {elapsed_process_time}')
 
 if __name__ == '__main__':
     main()

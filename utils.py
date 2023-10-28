@@ -1,6 +1,6 @@
 import time
 
-def time_execution(func):
+def print_execution_time(func):
     def wrapper(*args, **kwargs):
         srt = time.time()
         spt = time.process_time()
@@ -18,9 +18,3 @@ def time_execution(func):
 
         return result
     return wrapper
-
-@time_execution
-def test_func(input="Test"):
-    print(f'{input}')
-
-test_func("test input")
